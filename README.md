@@ -22,5 +22,5 @@ Task #5 Realizarea fisierelor din subdirectoare care contin operatiile de instal
 
 
 
-De discutat cu Cheval: interogarea procedeului HALF-INSTALLED
+De discutat cu Cheval: interogarea procedeului UPDATE
 
