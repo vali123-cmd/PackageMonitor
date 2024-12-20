@@ -3,7 +3,7 @@
 #Creez o lista de packageuri instalate sortat dupa data
 WORKDIR="$HOME/WorkDirectory"
 LOGFILE="/var/log/dpkg.log.2.gz"
-
+mkdir -p $HOME/facultate
 zcat /var/log/dpkg.log.2.gz | grep -w "install" | awk '{print $1, $2, $4}' >> $HOME/installedmonitor.txt
 zcat /var/log/dpkg.log.2.gz | grep -w "remove" | awk '{print $1, $2, $4}' >> $HOME/removedmonitor.txt
 zcat /var/log/dpkg.log.2.gz | grep -w "update" | awk '{print $1, $2, $4}' >> $HOME/updatedmonitor.txt   
