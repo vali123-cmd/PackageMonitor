@@ -7,11 +7,11 @@ HOW TO USE:
 
 ./interogare.sh {param} *{data1} *{data2}
 
-param = 1 => It will print all the programs that are currently installed on the system and the last date of the installation
-param = 2 => It will print all the programs that have been installed on the system, but removed and the last date of their removal
-param = 3 => It will print all the programs that have been in a status of half-installed on the system, and when they were half-installed
-param = 4 => It will print all the operations that have taken place on a package that was installed at a time in your system
-param = 5, data1 = "first date", data2 = "second date" => It will print all the operations that have taken place between 2 dates.
+param = 1 => It will print all the programs that are currently installed on the system and the last date of the installation\n
+param = 2 => It will print all the programs that have been installed on the system, but removed and the last date of their removal\n
+param = 3 => It will print all the programs that have been in a status of half-installed on the system, and when they were half-installed\n
+param = 4 => It will print all the operations that have taken place on a package that was installed at a time in your system\n
+param = 5, data1 = "first date", data2 = "second date" => It will print all the operations that have taken place between 2 dates.\n
 
 BACK-END (sau bash script)
 Task #1 Realizarea scriptului de cron care da run la logarea dpkg.log o data la 30 de minute
