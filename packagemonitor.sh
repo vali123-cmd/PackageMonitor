@@ -6,13 +6,13 @@ LOGFILE="/var/log/dpkg.log.2.gz"
 
 zcat /var/log/dpkg.log.2.gz | grep -w "install" | awk '{print $1, $2, $4}' >> $HOME/installedmonitor.txt
 zcat /var/log/dpkg.log.2.gz | grep -w "remove" | awk '{print $1, $2, $4}' >> $HOME/removedmonitor.txt
-zcat /var/log/dpkg.log.2.gz | grep -w "update" | awk '{print $1, $2, $4}' >> $HOME/updatedmonitor.txt   
+zcat /var/log/dpkg.log.2.gz | grep -w "update" | awk '{print $1, $2, $4}' >> $HOME/half-installedmonitor.txt   
 sort -n $HOME/installedmonitor.txt > $HOME/facultate/data1.txt
 sort -n $HOME/removedmonitor.txt > $HOME/facultate/data2.txt
-sort -n $HOME/updatedmonitor.txt > $HOME/facultate/data3.txt
+sort -n $HOME/half-installedmonitor.txt > $HOME/facultate/data3.txt
 rm $HOME/removedmonitor.txt
 rm $HOME/installedmonitor.txt
-rm $HOME/updatedmonitor.txt
+rm $HOME/half-installedmonitor.txt
 
 #Creez Workdirectory-ul mentionat in tema folosind awk.
 #parametrul 1 e data, 2 e ora, 3 e numele programului
@@ -32,7 +32,7 @@ awk '{system("touch $HOME/WorkDirectory/" $1 "/" $3 ".installed")}' $HOME/facult
 
 awk '{system("touch $HOME/WorkDirectory/" $1 "/" $3 ".removed")}' $HOME/facultate/data2.txt
 
-awk '{system("touch $HOME/WorkDirectory/" $1 "/" $3 ".updated")}' $HOME/facultate/data3.txt
+awk '{system("touch $HOME/WorkDirectory/" $1 "/" $3 ".half-installed")}' $HOME/facultate/data3.txt
 
 
 for d in "$WORKDIR"/*; do   

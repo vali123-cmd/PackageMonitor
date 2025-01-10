@@ -43,10 +43,30 @@ fi
 
 if [ "$param" = "4" ]; then
     parampackage="$2"
-    awk 
+    awk '{print}' ../WorkDirectory/$2/$2
     
-    
-    
+fi
+
+
+if [ "$param" = "5" ]; then
+    firstdate="$2"
+    seconddate="$3"
+    for subdir in "../WorkDirectory"/*/; do
+   
+    subdirectory=$(basename "$subdir")
+    if [[  $subdirectory =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+
+        start_timestamp=$(date -d "$firstdate" +%s)
+        end_timestamp=$(date -d "$seconddate" +%s)
+        check_timestamp=$(date -d "$subdirectory" +%s)
+
+        if [[ "$check_timestamp" -ge "$start_timestamp" && "$check_timestamp" -le "$end_timestamp" ]]; then
+            directory="../WorkDirectory/$subdir"
+
+            find "$directory" -type f
+            
+        fi
+    fi 
     done
 fi
 
